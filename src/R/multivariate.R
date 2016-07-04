@@ -19,7 +19,7 @@ X3=as.numeric(cardata$doors.)
 X4=as.numeric(cardata$person)
 X5=as.numeric(cardata$lug_boot)
 X6=as.numeric(cardata$safety)
-bugfile<-gsub("[[:space:]]","",paste(getwd(),"/src/bugs/multivariate1.txt"))
+bugfile<-gsub("[[:space:]]","",paste(getwd(),"/src/bugs/multivariate.txt"))
 modelmultivariate.sim=bugs(data, inits, parameters,model.file=bugfile,n.chains=1,n.iter=100,n.thin=1)
 A<-modelmultivariate.sim$sims.matrix
 estimate_GS_median<-apply(A,2,median)[1:7]
