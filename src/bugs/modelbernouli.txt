@@ -1,0 +1,14 @@
+# This is winbugs model  For bernouli outcomes 
+model 
+{
+for (i in 1:n)
+{
+y[i]~dbern(p[i])
+logit(p[i])<-beta[1]+T[i]*beta[2]
+}
+# This would later be constrained normal 
+beta[1]~dnorm(0,0.00001)   
+beta[2]~dnorm(0,0.00001) 
+}
+#list(T=c(53,57,58,63,66,67,67,67,68,69,70,70,70,70,72,73,75,75,76,76,78,79,81),y=c(1,1,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,0,0,0),n=23)
+list(beta=c(0,0))
